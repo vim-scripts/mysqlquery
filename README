@@ -1,0 +1,25 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2081
+
+Simple and Easy to use utility for executing MySQL queries.
+
+With this script comes only one function ExecMySQL(), so you need to bind a key to this function, for executing queries. For example:
+
+:vmap <F9> :call ExecMySQL()<CR>
+:nmap <F9> V:call ExecMySQL()<CR>
+
+After that you need to write a SQL query, then select it (or if query consist only of one line, point cursor to it) ant press <F9>.
+
+Query will be executed and in new buffer you will see result of that query. Results are shown in beautifully aligned table.
+
+Best way to work with this plug-in is separate file for queries. At the beginning of that file, in one of 10 first lines you need to add connection string:
+
+ -- mysql://username:password@hostname/dbname
+
+You can add many connection strings, but only first found string will be used. So if you want to change database, just move connection string at the very top of file.
+
+
+Also I suggesting you to use this mapping for better usage:
+
+map <F5> :b#<CR>
+
+With this mapping, after executing a query, you can easily switch back to query editing, just by pressing <F5>.
